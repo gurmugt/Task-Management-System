@@ -4,7 +4,7 @@ import './TaskCard.css';
 interface TaskCardProps {
   title: string;
   assigneeName: string;
-  dueDate?: string; 
+  dueDate?: string;
   completedAtDate?: string;
 }
 
@@ -12,11 +12,9 @@ const TaskCard: React.FC<TaskCardProps> = (props) => {
   let pending = null;
   let done = null;
 
-  if (props.dueDate) {
-    pending = <p>Due On: {props.dueDate}</p>;
-  }
-
-  if (props.completedAtDate) {
+  if (props.dueDate && !props.completedAtDate) {
+    pending = <p>Due on: {props.dueDate}</p>;
+  } else if (props.completedAtDate) {
     done = <p>Completed on: {props.completedAtDate}</p>;
   }
 
