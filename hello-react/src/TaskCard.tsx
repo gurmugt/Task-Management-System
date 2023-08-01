@@ -13,7 +13,7 @@ const TaskCard: React.FC<TaskCardProps> = (props) => {
   let done = null;
 
   if (props.dueDate) {
-    pending = <p>Due Date: {props.dueDate}</p>;
+    pending = <p>Due On: {props.dueDate}</p>;
   }
 
   if (props.completedAtDate) {
@@ -23,7 +23,7 @@ const TaskCard: React.FC<TaskCardProps> = (props) => {
   return (
     <div className='TaskItem'>
       <h2 className='text-xl font-bold text-purple-800'>{props.title}</h2>
-      <p className='text-blue-600'>Name: {props.assigneeName}</p>
+      <p className='text-blue-600'>Assignee: {props.assigneeName}</p>
       {pending}
       {done}
     </div>
