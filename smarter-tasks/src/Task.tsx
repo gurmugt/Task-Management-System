@@ -1,27 +1,22 @@
-import { Component } from "react";
-import "./TaskCard.css";
-
-interface TaskProp {
-  title: string;
-  description: string;
-  dueDate: string;
+import { TaskItem } from "./types";
+interface Props extends TaskItem {
+  onDelete: () => void;
 }
 
-class Task extends Component<TaskProp> {
-  
-  render() {
-    return (
-      <div className="TaskItem shadow-md border border-slate-100">
-        <h2 className="text-base font-bold my-1">{this.props.title}</h2>
-        <p className="text-sm text-slate-500">
-          Due Date: {this.props.dueDate}
-        </p>
-        <p className="text-sm text-slate-500">
-          Description: {this.props.description}
-        </p>
-      </div>
-    );
-  }
+const Task = ({ title, description, dueDate, onDelete }: Props) => {
+  return (
+    <div className="TaskItem shadow-md border border-slate-100">
+      <h2 className="text-base font-bold my-1">{title}</h2>
+      <p className="text-sm text-slate-500">Due Date: {dueDate}</p>
+      <p className="text-sm text-slate-500">Description: {description}</p>
+      <button
+        className="deleteTaskButton bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-red-400"
+        onClick={onDelete}
+      >
+        Delete
+      </button>
+    </div>
+  );
+};
 
-}
 export default Task;
