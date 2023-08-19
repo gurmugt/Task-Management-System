@@ -20,10 +20,10 @@ const router = createBrowserRouter([
     path: "/signin",
     element: <Signin />,
   },
-  //When any invalid route is accessed in the application,
-  // e.g./temp it should redirect back to the /notfound page.
-  //the asterisk * is used as a wildcard or a catch-all placeholder.
-  // It's used to match any route that doesn't match any of the explicitly defined routes.
+    //When any invalid route is accessed in the application,
+    // e.g./temp it should redirect back to the /notfound page.
+    //the asterisk * is used as a wildcard or a catch-all placeholder.
+    // It's used to match any route that doesn't match any of the explicitly defined routes.
   {
     path: "*",
     element: <Navigate to="/notfound" replace />,
