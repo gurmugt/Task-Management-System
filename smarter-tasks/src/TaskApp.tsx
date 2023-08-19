@@ -31,7 +31,7 @@ const TaskApp = () => {
       </h1>
       <h1 className="text-lg mb-6 text-slate-600">
         <span className="font-bold">Project: </span>
-        Graduation Final Year Project (Revamp college website)
+          My website
       </h1>
       <div className="grid grid-cols-2 gap-4">
         <div className="border border-slate-200 rounded-xl p-4">

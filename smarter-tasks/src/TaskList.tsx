@@ -7,17 +7,15 @@ interface Props {
 }
 
 const TaskList = ({ tasks, deleteTask }: Props) => {
-  const lists =  <ul> {tasks.map((task, index) => (
-    <li key={index}>
-      <Task
-        title={task.title}
-        description={task.description}
-        dueDate={task.dueDate}
-        onDelete={() => deleteTask(index)}
-      />
-    </li>
-  ))}
-</ul>
+  const lists = (
+    <ul>
+      {tasks.map((task, index) => (
+        <li key={index}>
+          <Task item={task} removeTask={() => deleteTask(index)} />
+        </li>
+      ))}
+    </ul>
+  );
   return <>{lists}</>;
 };
 
