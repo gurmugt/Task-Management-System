@@ -1,6 +1,7 @@
 import React from 'react';
 
 const Dashboard: React.FC = () => {
+  //Retrieving user details from local storage
   const userDataString = localStorage.getItem('userData');
   let userData = null;
 
