@@ -2,7 +2,7 @@
   "name": "smarter-tasks",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://gurmugt.github.io/wd301",
+  "homepage": "https://gurmugt.github.io/wd301/",
   "type": "module",
   "scripts": {
     "dev": "vite",
