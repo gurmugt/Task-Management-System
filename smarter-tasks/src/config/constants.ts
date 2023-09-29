@@ -1,1 +1,1 @@
-export const API_ENDPOINT = 'https://wd301-api.pupilfirst.school';
+export const API_ENDPOINT = import.meta.env.VITE_API_ENDPOINT;
