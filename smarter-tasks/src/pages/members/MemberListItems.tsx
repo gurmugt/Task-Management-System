@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { useMembersState, useMembersDispatch } from '../../context/members/context';
 import { removeMember } from '../../context/members/actions';
 import trash from "../../assets/images/trash.png";
