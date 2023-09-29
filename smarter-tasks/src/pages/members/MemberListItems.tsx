@@ -5,7 +5,6 @@ export default function MemberListItems() {
   let state: any = useMembersState();
   const dispatchMembers = useMembersDispatch();
   const { members, isLoading, isError, errorMessage } = state;
-
   const handleRemoveMember = async (member: any) => {
     try {
       const response = await removeMember(dispatchMembers, member.id);
