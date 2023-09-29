@@ -1,15 +1,9 @@
 import { useMembersState, useMembersDispatch } from '../../context/members/context';
 import { removeMember } from '../../context/members/actions';
-
+import trash from "../../assets/images/trash.png";
 export default function MemberListItems() {
   let state: any = useMembersState();
   const dispatchMembers = useMembersDispatch();
-
-  if (!state) {
-    // To check wether the state is undefined or not
-    return <span>Loading...State undefined</span>;
-  }
-
   const { members, isLoading, isError, errorMessage } = state;
 
   const handleRemoveMember = async (member: any) => {
@@ -46,9 +40,17 @@ export default function MemberListItems() {
           <p className="text-gray-500 dark:text-gray-400">Email: {member.email}</p>
           <button
             onClick={() => handleRemoveMember(member)} 
-            className="mt-2 bg-red-500 text-white font-semibold py-2 px-4 rounded hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50"
          >
-          Delete
+          <img
+              src={trash}
+              style={{
+                width: "10%",
+                height: "auto",
+              }}
+              alt="Delete icon"
+              className="trash"
+              id="new-member-btn"
+            />
           </button>
         </div>
       ))}

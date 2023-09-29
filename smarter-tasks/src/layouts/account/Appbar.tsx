@@ -2,7 +2,7 @@ import { useState, useContext, Fragment } from 'react'
 import { Disclosure, Menu, Transition, Switch } from '@headlessui/react'
 import { UserCircleIcon } from '@heroicons/react/24/outline'
 import { ThemeContext } from "../../context/theme";
-//import Logo from "../../assets/images/logo.png";
+import Logo from "../../assets/images/logo.png";
 import { Link, useLocation } from "react-router-dom"
 
 const userNavigation = [
@@ -43,7 +43,7 @@ const Appbar = () => {
                 <div className="flex-shrink-0">
                     <img
                     className="h-8"
-                    // src={Logo}
+                     src={Logo}
                     alt="Smarter Tasks"
                   />
                 </div>
