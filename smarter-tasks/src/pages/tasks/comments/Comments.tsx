@@ -1,10 +1,10 @@
-import React, {useEffect } from "react";
+import  {useEffect } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
 import { useCommentsDispatch } from "../../../context/comment/context";
 import { addComment, fetchComments } from "../../../context/comment/actions";
 import { Comment } from "../../../context/comment/types";
-const CommentListItems = React.lazy(() => import("./CommentListItems"));
+import CommentListItems from "./CommentListItems";
 
 export const Comments = () => {
   const CommentsDispatch = useCommentsDispatch();
@@ -44,14 +44,14 @@ export const Comments = () => {
     <>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div>
-          <label className="comment block text-gray-700 font-semibold mb-2">
+          <label className="block text-gray-700 font-semibold mb-2">
             Comment:
           </label>
           <input
             type="text"
             id="commentBox"
             {...register("description", { required: true })}
-            className="comment w-full border rounded-md py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-blue-500 focus:shadow-outline-blue"
+            className="w-full border rounded-md py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-blue-500 focus:shadow-outline-blue"
           />
           {errors.description && <span>This field is required</span>}
         </div>

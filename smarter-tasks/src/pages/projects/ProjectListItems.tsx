@@ -1,4 +1,3 @@
-import React from "react";
 import { useProjectsState } from "../../context/projects/context";
 import { Link } from "react-router-dom";
 

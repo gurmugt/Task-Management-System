@@ -7,7 +7,6 @@ import Projects from "../pages/projects"
 import Members from "../pages/members"
 import Logout from "../pages/logout";
 import Notfound from "../pages/Notfound";
-import { Outlet } from "react-router-dom";
 import ProjectContainer from "../pages/projects/ProjectContainer";
 import ProjectDetails from "../pages/project_details";
 import NewTask from "../pages/tasks/NewTask";

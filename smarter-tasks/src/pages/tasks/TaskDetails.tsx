@@ -8,7 +8,6 @@ import { updateTask } from "../../context/task/actions";
 import { useProjectsState } from "../../context/projects/context";
 import { TaskDetailsPayload } from "../../context/task/types";
 import { useMembersState } from "../../context/members/context";
-import { CommentsProvider } from "../../context/comment/context";
 import { Comments } from "./comments/Comments";
 
 type TaskFormUpdatePayload = TaskDetailsPayload & {
@@ -201,9 +200,7 @@ const TaskDetails = () => {
                         Cancel
                       </button>
                     </form>
-                    <CommentsProvider>
-                      <Comments />
-                    </CommentsProvider>
+                      <Comments/>
                   </div>
                 </Dialog.Panel>
               </Transition.Child>
