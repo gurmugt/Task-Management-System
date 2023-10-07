@@ -1,10 +1,11 @@
-import  {useEffect } from "react";
+import React, { Suspense, useEffect } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
 import { useCommentsDispatch } from "../../../context/comment/context";
 import { addComment, fetchComments } from "../../../context/comment/actions";
 import { Comment } from "../../../context/comment/types";
-import CommentListItems from "./CommentListItems";
+import ErrorBoundary from "../../../components/ErrorBoundary";
+const CommentListItems = React.lazy(() => import("./CommentListItems"));
 
 export const Comments = () => {
   const CommentsDispatch = useCommentsDispatch();
@@ -24,7 +25,7 @@ export const Comments = () => {
   } = useForm<Inputs>();
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
-    const { description } = data; 
+    const { description } = data; //destructuring form data
     console.log("comment is: ", description);
     if (!description.trim()) {
       return;
@@ -44,6 +45,7 @@ export const Comments = () => {
     <>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div>
+          {/* {error && <span>{error}</span>} //here in we can use error stateoutside the form*/}
           <label className="block text-gray-700 font-semibold mb-2">
             Comment:
           </label>
@@ -63,7 +65,12 @@ export const Comments = () => {
           Comment
         </button>
       </form>
+      {/* <button onClick={handleSignup}>Don't have an account?</button> */}
+      <ErrorBoundary>
+        <Suspense fallback={<div className="suspense-loading">Loading...</div>}>
           <CommentListItems />
+        </Suspense>
+      </ErrorBoundary>
     </>
   );
 };
