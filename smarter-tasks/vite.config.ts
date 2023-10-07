@@ -1,8 +1,12 @@
 import { VitePWA } from "vite-plugin-pwa";
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-export default defineConfig({
-  plugins: [
+export default ({ mode }) => {
+  return defineConfig({
+    build: {
+      outDir: "dev-dist",
+    },
+   plugins: [
     react(),
     VitePWA({
       devOptions: {
@@ -43,4 +47,8 @@ export default defineConfig({
       },
     }),
   ],
-});
+    define: {
+      "process.env.NODE_ENV": `"${mode}"`,
+    },
+  });
+};
